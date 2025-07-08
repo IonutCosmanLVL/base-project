@@ -23,6 +23,7 @@
     /* Colors */
     --color-white:       #FFFFFF;
     --color-black:       #000000;
+    --color-gold:        #b6995a;
     --color-copper:      #a1783f;
     --color-tan:         #c9ab83;
     --color-tan-light:   #f5efe6;
@@ -33,11 +34,15 @@
     /* Optional base colors */
     --color-primary:     var(--color-dark-grey);
     --color-background:  var(--color-tan-light);
-    --color-accent:      var(--color-copper);
+    --color-accent:      var(--color-gold);
 
     /* easings */
     --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
     --ease-fluid:  cubic-bezier(0.3, 0, 0, 1);
+}
+
+html {
+   @apply bg-background text-primary font-body scroll-smooth;
 }
 
 /* Now you can use your tokens in classes: 
