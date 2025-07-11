@@ -10,7 +10,7 @@ export default function Logo({ url }: LogoProps) {
         <Link
             href="/"
             aria-label="Go to homepage"
-            className="hover:opacity-80 block w-[195px]"
+            className="block w-[195px]"
         >
             <Image
                 src={url}

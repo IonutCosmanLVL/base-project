@@ -63,7 +63,7 @@ export default function Header() {
     >
         <div className="max-w-[1440px] mx-auto px-4 py-4 flex justify-between items-center">
             {/* Logo */}
-            <Logo url="/icons/ares-logo.svg" />
+            <Logo url="/icons/ares-logo-nogradient.svg" />
 
             {/* Desktop Nav */}
             <nav className="hidden lg:block">
