@@ -1,12 +1,19 @@
-// src/app/page.tsx
+import Hero from '../components/hero/Hero';
+
 export default function HomePage() {
-    return (
-        <section className="min-h-[80vh] h-[2600px] flex items-center justify-center">
-            <h1 className="text-4xl font-heading text-accent">
-                Welcome to the Base Project
-            </h1>
-        </section>
-    );
+  return (
+    <main>
+      <Hero />
+
+      <section className="w-full flex items-center justify-center min-h-[80vh] bg-white">
+        <div className="max-w-[1440px] w-full px-6 text-center">
+          <h1 className="text-4xl font-inter text-space">
+            Welcome to the Base Project
+          </h1>
+        </div>
+      </section>
+
+      {/* Add other sections here */}
+    </main>
+  );
 }
-// This is the main page of the application, which serves as a landing page.
-// It displays a welcome message and is styled to be centered on the screen.

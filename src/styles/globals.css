@@ -8,9 +8,9 @@
 /* Your custom theme tokens live here */
 @theme {
     /* fonts */
-    --font-body:     "Inter", sans-serif;
-    --font-heading:  "Playfair Display", serif;
-    --font-accent:   "Space Grotesk", sans-serif;
+    --font-play:     "Playfair Display", serif;
+    --font-inter:  "Inter", sans-serif;
+    --font-space:   "Space Grotesk", sans-serif;
 
     /* breakpoints */
     --breakpoint-xs:   370px;
@@ -42,11 +42,14 @@
 }
 
 html {
-   @apply bg-background text-primary font-body scroll-smooth;
+   @apply bg-background text-primary font-play scroll-smooth;
 }
 
+.text-shadow-sm {
+   text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
+}
 /* Now you can use your tokens in classes: 
-   <div class="text-primary font-heading md:text-xl lg:text-2xl">…</div> */
+   <div class="text-primary font-inter md:text-xl lg:text-2xl">…</div> */
 
 /* Now you can use your tokens in classes: 
-   <div class="text-primary font-heading md:text-xl lg:text-2xl">…</div> */
+   <div class="text-primary font-inter md:text-xl lg:text-2xl">…</div> */
