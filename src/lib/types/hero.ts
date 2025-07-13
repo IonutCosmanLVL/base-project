@@ -16,7 +16,7 @@ export interface HeroFields {
   };
 }
 
-// ✅ Provide contentTypeId so TypeScript knows how to map it
+// Provide contentTypeId so TypeScript knows how to map it
 export type HeroSkeleton = EntrySkeletonType<HeroFields, 'navigationMenu'>;
 
 export interface HeroData {

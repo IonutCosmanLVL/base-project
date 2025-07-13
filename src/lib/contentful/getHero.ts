@@ -24,7 +24,7 @@ export async function getHero(): Promise<HeroData | null> {
             backgroundImageUrl: item.backgroundImage?.fields?.file?.url ?? '',
         };
     } catch (error) {
-        console.error('❌ Failed to fetch hero data:', error);
+        console.error('Failed to fetch hero data:', error);
         return null;
     }
 }
