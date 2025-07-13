@@ -8,8 +8,8 @@
 /* Your custom theme tokens live here */
 @theme {
     /* fonts */
-    --font-play:     "Playfair Display", serif;
-    --font-inter:  "Inter", sans-serif;
+    --font-play:    "Playfair Display", serif;
+    --font-inter:   "Inter", sans-serif;
     --font-space:   "Space Grotesk", sans-serif;
 
     /* breakpoints */
@@ -27,7 +27,7 @@
     --color-copper:      #a1783f;
     --color-tan:         #c9ab83;
     --color-tan-light:   #f5efe6;
-    --color-light-grey:  #a09b8f;
+    --color-light-grey:  #7e7e7e;
     --color-grey:        #4b4b4b;
     --color-dark-grey:   #292929;
 

@@ -1,16 +1,15 @@
-import Hero from '../components/hero/Hero';
+import Hero from '../../components/hero/Hero';
 import AboutUs from '@/components/about/AboutUs';
 
 export default function HomePage() {
   return (
     <main>
       <Hero />
-      <AboutUs />
 
       <section className="w-full flex items-center justify-center min-h-[80vh] bg-white">
         <div className="max-w-[1440px] w-full px-6 text-center">
           <h1 className="text-4xl font-inter text-space">
-            Welcome to the Base Project
+            ABOUT US
           </h1>
         </div>
       </section>
