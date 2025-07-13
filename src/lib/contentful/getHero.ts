@@ -1,8 +1,9 @@
-import { client } from '../contentfulClient';
+import { createContentfulClient } from '../contentfulClient';
 import type { HeroSkeleton, HeroData } from '../types/hero';
 
 export async function getHero(): Promise<HeroData | null> {
     try {
+        const client = createContentfulClient();
         const res = await client.getEntries<HeroSkeleton>({
             content_type: 'navigationMenu',
             limit: 1,
