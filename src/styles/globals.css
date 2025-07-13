@@ -8,9 +8,9 @@
 /* Your custom theme tokens live here */
 @theme {
     /* fonts */
-    --font-body:     "Inter", sans-serif;
-    --font-heading:  "Playfair Display", serif;
-    --font-accent:   "Space Grotesk", sans-serif;
+    --font-play:    "Playfair Display", serif;
+    --font-inter:   "Inter", sans-serif;
+    --font-space:   "Space Grotesk", sans-serif;
 
     /* breakpoints */
     --breakpoint-xs:   370px;
@@ -23,25 +23,33 @@
     /* Colors */
     --color-white:       #FFFFFF;
     --color-black:       #000000;
+    --color-gold:        #b6995a;
     --color-copper:      #a1783f;
     --color-tan:         #c9ab83;
     --color-tan-light:   #f5efe6;
-    --color-light-grey:  #a09b8f;
+    --color-light-grey:  #7e7e7e;
     --color-grey:        #4b4b4b;
     --color-dark-grey:   #292929;
 
     /* Optional base colors */
     --color-primary:     var(--color-dark-grey);
     --color-background:  var(--color-tan-light);
-    --color-accent:      var(--color-copper);
+    --color-accent:      var(--color-gold);
 
     /* easings */
     --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
     --ease-fluid:  cubic-bezier(0.3, 0, 0, 1);
 }
 
+html {
+   @apply bg-background text-primary font-play scroll-smooth;
+}
+
+.text-shadow-sm {
+   text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
+}
 /* Now you can use your tokens in classes: 
-   <div class="text-primary font-heading md:text-xl lg:text-2xl">…</div> */
+   <div class="text-primary font-inter md:text-xl lg:text-2xl">…</div> */
 
 /* Now you can use your tokens in classes: 
-   <div class="text-primary font-heading md:text-xl lg:text-2xl">…</div> */
+   <div class="text-primary font-inter md:text-xl lg:text-2xl">…</div> */

@@ -1,45 +1,29 @@
+// src/components/header/partials/NavMenu.tsx
 import Link from 'next/link';
 
-type MenuItem = {
-    text: string;
-    href: string;
-};
-
-type NavMenuProps = {
-    menuLinks: MenuItem[];
-    onClick?: () => void;
-    isMobile?: boolean;
-};
+type MenuItem = { text: string; href: string };
+type NavMenuProps = { menuLinks: MenuItem[]; onClick?: () => void; isMobile?: boolean };
 
 export default function NavMenu({ menuLinks, onClick, isMobile = false }: NavMenuProps) {
     const baseClasses = isMobile
-        ? 'flex flex-col items-center gap-6 text-[36px] lg:hidden'
-        : 'hidden lg:flex items-center gap-8 text-[16px]';
+        ? 'flex flex-col items-center gap-6 text-[36px] font-sans lg:hidden'
+        : 'hidden lg:flex items-center gap-8 text-[18px] font-sans';
+
+    const linkClasses = 'text-dark-grey hover:text-gold transition-colors duration-300';
 
     return (
-        <ul className={`${baseClasses}`}>
-            {menuLinks.map((link, index) => {
-                const isExternal = link.href.startsWith('http');
-
+        <ul className={baseClasses}>
+            {menuLinks.map(({ text, href }) => {
+                const isExternal = href.startsWith('http');
                 return (
-                    <li key={index}>
+                    <li key={href}>
                         {isExternal ? (
-                            <a
-                                href={link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={onClick}
-                                className="text-dark-grey hover:text-copper transition-colors duration-300"
-                            >
-                                {link.text}
+                            <a href={href} target="_blank" rel="noopener noreferrer" onClick={onClick} className={linkClasses}>
+                                {text}
                             </a>
                         ) : (
-                            <Link
-                                href={link.href}
-                                onClick={onClick}
-                                className="text-dark-grey hover:text-copper transition-colors duration-300"
-                            >
-                                {link.text}
+                            <Link href={href} onClick={onClick} className={linkClasses}>
+                                {text}
                             </Link>
                         )}
                     </li>
@@ -48,5 +32,4 @@ export default function NavMenu({ menuLinks, onClick, isMobile = false }: NavMen
         </ul>
     );
 }
-// This component renders a navigation menu with links.
-// It supports both internal and external links, and can be styled differently for mobile and desktop views
+// This component renders a navigation menu with links.     
