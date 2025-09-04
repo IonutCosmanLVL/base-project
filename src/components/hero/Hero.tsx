@@ -1,32 +1,28 @@
 // components/Hero/Hero.tsx
-import { getHero } from '@/lib/contentful/getHero';
+'use client';
+
 import Headline from './partials/Headline';
 import Subtitle from './partials/Subtitle';
 import CTAButton from './partials/CTAButton';
 import Image from 'next/image';
 
-export default async function Hero() {
-    const heroData = await getHero();
-
-    if (!heroData) {
-        return <div className="text-red-500">⚠️ No hero data</div>;
-    }
-
-    const {
-        staticTitle,
-        animatedPhrases,
-        subtitle,
-        ctaText,
-        ctaLink,
-        backgroundImageUrl,
-    } = heroData;
-
-    const imageUrl = `https:${backgroundImageUrl}`;
+export default function Hero() {
+    // Hardcoded content
+    const staticTitle = 'ARES';
+    const animatedPhrases = [
+        'Casa Ta',
+        'Stilul Tău',
+        'Visul Tău',
+    ];
+    const subtitle = 'Intră în universul arhitecturii moderne, unde fiecare detaliu îmbină frumusețea cu utilitatea.';
+    const ctaText = 'Contact';
+    const ctaLink = '/contact';
+    const backgroundImageUrl = '/images/black-house2-bg-min.jpg'; // Local asset or external
 
     return (
         <section className="relative h-screen max-h-none xl:max-h-[1200px] w-full overflow-hidden">
             <Image
-                src={imageUrl}
+                src={backgroundImageUrl}
                 alt="Hero background"
                 fill
                 className="object-cover object-center md:object-[50%_30%] z-0"
