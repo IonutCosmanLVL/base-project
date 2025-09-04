@@ -16,7 +16,7 @@ export async function getAboutUs() {
 
         const entry = res.items[0].fields;
 
-        const images = (entry.images as any[]) || [];
+        const images = (entry.images as unknown as any[]) || [];
 
         const getImageUrl = (index: number) => {
             const url = images[index]?.fields?.file?.url;
