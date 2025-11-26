@@ -30,7 +30,7 @@ export default function AboutUsClient() {
                         variants={variants}
                         initial="hiddenUp"
                         animate={headingInView ? 'visible' : 'hiddenUp'}
-                        transition={{ delay: 0.4, duration: 0.8, ease: 'easeInOut' }}
+                        transition={{duration: 0.8, ease: 'easeInOut' }}
                     >
                         Despre Ares Residence
                     </motion.h2>
@@ -42,7 +42,7 @@ export default function AboutUsClient() {
                             variants={variants}
                             initial="hiddenLeft"
                             animate={lineInView ? 'visible' : 'hiddenLeft'}
-                            transition={{ delay: 0.5, duration: 0.8, ease: 'easeInOut' }}
+                            transition={{ duration: 0.8, ease: 'easeInOut' }}
                         />
 
                         <motion.div
@@ -51,7 +51,7 @@ export default function AboutUsClient() {
                             variants={variants}
                             initial="hiddenRight"
                             animate={paragraphInView ? 'visible' : 'hiddenRight'}
-                            transition={{ delay: 0.6, duration: 0.8, ease: 'easeInOut' }}
+                            transition={{ duration: 0.8, ease: 'easeInOut' }}
                         >
                             <div className="font-inter text-lg text-light-grey leading-[34px] mb-[60px] xl:mb-[110px] mt-[-10px] space-y-6">
                                 <p>
@@ -66,7 +66,7 @@ export default function AboutUsClient() {
                                 ref={linkRef}
                                 initial={{ opacity: 0 }}
                                 animate={linkInView ? { opacity: 1 } : { opacity: 0 }}
-                                transition={{ delay: 0.8, duration: 0.6, ease: 'easeInOut' }}
+                                transition={{duration: 0.6, ease: 'easeInOut' }}
                             >
                                 <Link
                                     href="/about-us"
@@ -87,7 +87,7 @@ export default function AboutUsClient() {
                         variants={variants}
                         initial="hiddenRight"
                         animate={imgRightInView ? 'visible' : 'hiddenRight'}
-                        transition={{ delay: 0.5, duration: 0.6, ease: 'easeInOut' }}
+                        transition={{duration: 0.6, ease: 'easeInOut' }}
                     >
                         <Image
                             src="/images/black-house-bg.jpg"
@@ -103,7 +103,7 @@ export default function AboutUsClient() {
                         variants={variants}
                         initial="hiddenLeft"
                         animate={imgLeftInView ? 'visible' : 'hiddenLeft'}
-                        transition={{ delay: 0.6, duration: 0.8, ease: 'easeInOut' }}
+                        transition={{ duration: 0.8, ease: 'easeInOut' }}
                     >
                         <Image
                             src="/images/black-house2-bg.jpg"

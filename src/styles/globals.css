@@ -24,12 +24,15 @@
     --color-white:       #FFFFFF;
     --color-black:       #000000;
     --color-gold:        #b6995a;
+    --color-satin:       #cba135;
     --color-copper:      #a1783f;
     --color-tan:         #c9ab83;
     --color-tan-light:   #f5efe6;
     --color-light-grey:  #7e7e7e;
     --color-grey:        #4b4b4b;
-    --color-dark-grey:   #292929;
+    --color-dark-grey:   #141615;
+    --color-hunter:      #37654b;
+    --color-forest:      #1c3a2c;
 
     /* Optional base colors */
     --color-primary:     var(--color-dark-grey);
