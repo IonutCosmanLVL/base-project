@@ -1,50 +1,34 @@
 // components/Hero/Hero.tsx
-'use client';
-
-import Headline from './partials/Headline';
-import Subtitle from './partials/Subtitle';
-import CTAButton from './partials/CTAButton';
-import Image from 'next/image';
+import Image from "next/image";
+import Headline from "./partials/Headline";
 
 export default function Hero() {
-    // Hardcoded content
-    const staticTitle = 'ARES';
-    const animatedPhrases = [
-        'Casa Ta',
-        'Stilul Tău',
-        'Visul Tău',
-    ];
-    const subtitle = 'Intră în universul arhitecturii moderne, unde fiecare detaliu îmbină frumusețea cu utilitatea.';
-    const ctaText = 'Contact';
-    const ctaLink = '/contact';
-    const backgroundImageUrl = '/images/black-house2-bg-min.jpg'; // Local asset or external
+    const heroImg = "/images/ares-night.png";
 
     return (
-        <section className="relative h-screen max-h-none xl:max-h-[1200px] w-full overflow-hidden">
+        <section className="relative w-full text-tan-light overflow-hidden min-h-[95vh]">
+            {/* Full-bleed background image */}
             <Image
-                src={backgroundImageUrl}
-                alt="Hero background"
+                src={heroImg}
+                alt="Casă modernă ARES"
                 fill
-                className="object-cover object-center md:object-[50%_30%] z-0"
                 priority
+                sizes="100vw"
+                className="object-cover"
             />
-            <div className="absolute inset-0 bg-black/40 z-10" />
 
-            <div className="relative z-20 flex h-full px-6 flex-col justify-center items-center text-center lg:flex-row lg:items-center lg:justify-start lg:text-left">
-                <div className="w-full max-w-[1440px] mx-auto">
-                    <div className="w-full lg:w-1/2 text-shadow-sm flex flex-col items-center justify-center text-center lg:items-start lg:justify-start lg:text-left space-y-[100px] mt-[120px]">
-                        <Headline
-                            staticTitle={staticTitle}
-                            animatedPhrases={animatedPhrases}
-                        />
+            {/* Bottom gradient for readability */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
 
-                        <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4">
-                            <Subtitle text={subtitle} />
-                            <CTAButton text={ctaText} link={ctaLink} />
-                        </div>
-                    </div>
+            {/* Bottom content row */}
+            <div className="absolute inset-x-0 bottom-0 z-10">
+                <div className="mx-auto px-[24px] 2xl:px-[150px] py-[32px]">
+                    {/* One-line ARES */}
+                    <Headline text="ARES" />
                 </div>
             </div>
         </section>
     );
 }
+// This Hero component displays a full-width hero section with a background image,
+// a gradient overlay at the bottom for readability, and an animated headline.
