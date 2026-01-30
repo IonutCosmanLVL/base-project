@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, easeOut, type Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 type Feature = {
@@ -40,20 +40,27 @@ const features: Feature[] = [
 export default function ChooseUs() {
     const [ref, inView] = useInView({ threshold: 0.25, triggerOnce: true });
 
-    const headerVariants = {
+    const headerVariants: Variants = {
         hidden: { opacity: 0, y: 18 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+            duration: 0.7,
+            ease: easeOut,
+            },
+        },
     };
 
-    const cardVariants = {
+    const cardVariants: Variants = {
         hidden: { opacity: 0, y: 22 },
         visible: (index: number) => ({
             opacity: 1,
             y: 0,
             transition: {
-                delay: 0.15 + index * 0.12,
-                duration: 0.7,
-                ease: 'easeOut',
+            delay: 0.15 + index * 0.12,
+            duration: 0.7,
+            ease: easeOut,
             },
         }),
     };
