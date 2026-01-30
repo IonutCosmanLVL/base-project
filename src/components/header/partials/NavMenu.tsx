@@ -6,8 +6,8 @@ type NavMenuProps = { menuLinks: MenuItem[]; onClick?: () => void; isMobile?: bo
 
 export default function NavMenu({ menuLinks, onClick, isMobile = false }: NavMenuProps) {
     const baseClasses = isMobile
-        ? 'flex flex-col items-center gap-6 text-[36px] font-sans lg:hidden'
-        : 'hidden lg:flex items-center gap-8 text-[18px] font-sans';
+        ? 'flex flex-col items-center gap-6 text-[36px] font-poppins lg:hidden'
+        : 'hidden lg:flex items-center gap-8 text-[18px] font-poppins';
 
     const linkClasses = 'text-dark-grey hover:text-gold transition-colors duration-300';
 

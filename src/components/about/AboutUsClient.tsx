@@ -26,13 +26,13 @@ export default function AboutUsClient() {
                 <div className="lg:max-w-[75%] z-5">
                     <motion.h2
                         ref={headingRef}
-                        className="text-4xl md:text-5xl lg:text-[40px] font-inter font-bold uppercase tracking-wide text-dark-grey mb-[55px] xl:mb-[85px]"
+                        className="h2 text-dark-grey mb-[55px] xl:mb-[85px]"
                         variants={variants}
                         initial="hiddenUp"
                         animate={headingInView ? 'visible' : 'hiddenUp'}
                         transition={{duration: 0.8, ease: 'easeInOut' }}
                     >
-                        Despre Ares Residence
+                        Despre Noi
                     </motion.h2>
 
                     <div className="w-full flex flex-col xl:flex-row">
@@ -53,7 +53,7 @@ export default function AboutUsClient() {
                             animate={paragraphInView ? 'visible' : 'hiddenRight'}
                             transition={{ duration: 0.8, ease: 'easeInOut' }}
                         >
-                            <div className="font-inter text-lg text-light-grey leading-[34px] mb-[60px] xl:mb-[110px] mt-[-10px] space-y-6">
+                            <div className="p-lead text-grey mb-[60px] xl:mb-[110px] mt-[-10px] space-y-6">
                                 <p>
                                     Ares Residence prezintă un remarcabil proiect imobiliar, menit să ducă mai departe tradiția dezvoltatorului de a crea opere de artă arhitecturale, conform standardelor occidentale, folosind materiale de cea mai înaltă calitate.
                                 </p>
@@ -70,7 +70,7 @@ export default function AboutUsClient() {
                             >
                                 <Link
                                     href="/about-us"
-                                    className="absolute bottom-[-25px] left-0 uppercase text-grey hover:border-tan-light font-inter text-[16px] font-semibold hover:text-gold transition-colors duration-300 border-b-[2px] border-gold pb-[4px]"
+                                    className="absolute bottom-[-25px] left-0 uppercase text-grey font-inter text-[16px] font-semibold hover:text-gold transition-colors duration-300"
                                 >
                                     despre noi
                                 </Link>

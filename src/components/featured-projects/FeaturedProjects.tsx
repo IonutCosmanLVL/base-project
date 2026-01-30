@@ -28,7 +28,7 @@ export default function FeaturedProjects({
     const isImageLeft = imagePosition === 'left';
 
     return (
-        <section ref={ref} className="relative w-full bg-white overflow-hidden lg:h-[900px]">
+        <section ref={ref} className={`relative w-full overflow-hidden lg:h-[900px] bg-transparent z-[2] ${isImageLeft ? 'lg:mt-[-80px]' : ''}`}>
             {/* Desktop: Image */}
             <motion.div
                 className={`hidden lg:block absolute top-0 h-full w-1/2 ${
@@ -58,8 +58,8 @@ export default function FeaturedProjects({
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
                 >
-                    <div className="max-w-xl">
-                        <h2 className="text-4xl md:text-5xl font-inter font-bold uppercase tracking-wide text-dark-grey">
+                    <div className={`max-w-xl ${isImageLeft ? 'lg:mt-[40px]' : 'lg:mt-[-40px]'}`}>
+                        <h2 className="h2 text-dark-grey">
                             {title}
                         </h2>
                         <div
@@ -67,7 +67,8 @@ export default function FeaturedProjects({
                                 isImageLeft ? 'ml-auto' : 'mr-auto'
                             }`}
                         />
-                        <p className="text-light-grey font-inter text-lg leading-relaxed mb-8">
+
+                        <p className="text-grey p-lead leading-relaxed mb-8">
                             {description}
                         </p>
                         {stats.length > 0 && (
@@ -104,8 +105,8 @@ export default function FeaturedProjects({
 function Stat({ label, value, align }: { label: string; value: string; align: 'start' | 'end' }) {
     return (
         <div className={`flex flex-col items-${align}`}>
-            <span className="text-[15px] text-light-grey mb-1">{label}</span>
-            <span className="text-dark-grey font-bold text-[18px]">{value}</span>
+            <span className="font-inter text-[15px] text-grey mb-1">{label}</span>
+            <span className="font-poppins text-dark-grey text-[18px] font-[500] text-gold leading-none">{value}</span>
         </div>
     );
 }
