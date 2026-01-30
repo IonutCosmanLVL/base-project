@@ -3,18 +3,12 @@
 import AnimatedHeadline from './AnimatedHeadline';
 
 interface HeadlineProps {
-  staticTitle: string;
-  animatedPhrases: string[];
+    text?: string;
+    className?: string;
 }
 
-export default function Headline({ staticTitle, animatedPhrases }: HeadlineProps) {
-  return (
-    <AnimatedHeadline
-      phrases={animatedPhrases}
-      staticText={staticTitle}
-      className="block"
-    />
-  );
+export default function Headline({ text = 'ARES', className }: HeadlineProps) {
+    return <AnimatedHeadline text={text} className={className} />;
 }
-// This Headline component renders an animated headline with a static title and rotating phrases.
-// It uses the AnimatedHeadline component to create a visually engaging effect.
+// This Headline component is a simple wrapper around the AnimatedHeadline component,
+// allowing for easy reuse with default text and optional styling.
