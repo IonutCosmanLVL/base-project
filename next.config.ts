@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   images: {
         domains: ['images.ctfassets.net'],
   },
+  output: 'export',
+  distDir: 'docs',
+  basePath: '/base-project',
+  assetPrefix: '/base-project/',
 };
 
 export default nextConfig;
