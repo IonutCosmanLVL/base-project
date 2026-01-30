@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import { Phone, MapPin } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function Hero() {
     // ========== Constants ==========
@@ -17,32 +17,41 @@ export default function Hero() {
 
     // ========== Animation Variants - grouped by component ==========
     // Heading and main title animations
-    const textBlockVariants = {
+    const textBlockVariants: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: [0.2, 0, 0, 1] },
+            transition: {
+            duration: 0.8,
+            ease: [0.2, 0, 0, 1] as const,
+            },
         },
     };
 
-    // Call-to-action button animation
-    const buttonVariants = {
+    const buttonVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.6, ease: [0.2, 0, 0, 1], delay: 0.4 },
+            transition: {
+            duration: 0.6,
+            ease: [0.2, 0, 0, 1] as const,
+            delay: 0.4,
+            },
         },
     };
 
-    // Location link animation
-    const mapLinkVariants = {
+    const mapLinkVariants: Variants = {
         hidden: { opacity: 0, y: 10 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.5, ease: [0.2, 0, 0, 1], delay: 0.6 },
+            transition: {
+            duration: 0.5,
+            ease: [0.2, 0, 0, 1] as const,
+            delay: 0.6,
+            },
         },
     };
 
