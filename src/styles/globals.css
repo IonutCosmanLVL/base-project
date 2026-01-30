@@ -1,6 +1,9 @@
 /* src/styles/globals.css */
 /* @import "tailwindcss/preflight"
 @tailwind utilities; */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 
 @import "tailwindcss";
 
@@ -8,9 +11,11 @@
 /* Your custom theme tokens live here */
 @theme {
     /* fonts */
-    --font-play:    "Playfair Display", serif;
+    --font-play:    "Cormorant Garamond", serif;  /* was Playfair Display */
     --font-inter:   "Inter", sans-serif;
     --font-space:   "Space Grotesk", sans-serif;
+    --font-oswald:   "Oswald", sans-serif;
+    --font-poppins:  "Poppins", sans-serif;
 
     /* breakpoints */
     --breakpoint-xs:   370px;
@@ -44,6 +49,16 @@
     --ease-fluid:  cubic-bezier(0.3, 0, 0, 1);
 }
 
+@layer components {
+    .h2 {
+        @apply text-4xl md:text-5xl lg:text-[56px] font-poppins font-[600] tracking-wide;
+    }
+
+    .p-lead {
+        @apply font-inter text-lg leading-[34px];
+    }
+}
+
 html {
    @apply bg-background text-primary font-play scroll-smooth;
 }
@@ -51,6 +66,131 @@ html {
 .text-shadow-sm {
    text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
 }
+
+/* Animated gradient button using #D38312 → #A83279 */
+/* Only background gradient + animation, nothing else */
+.btn-gradient-bg,
+.btn-gold-bg {
+  background-image: linear-gradient(45deg, #D38312 10%, #A83279 90%);
+  background-size: 200% 100%;
+  background-position: 0 0;
+}
+
+.btn-gold-bg {
+  background-image: none;
+  background-color: var(--color-gold);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gradient-bg:hover {
+  animation: gradient-swipe 2s linear infinite;
+}
+
+.btn-gold-bg:hover {
+  animation: gradient-swipe 2s linear infinite;
+  background-image: linear-gradient(40deg, rgba(177, 148, 85, 1) 0%, rgba(161, 120, 63, 1) 100%);
+}
+
+/* Keyframes for gradient sliding effect */
+@keyframes gradient-swipe {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Animated gradient text color */
+.gradient-text-gold {
+      background-image: linear-gradient(40deg, rgba(177, 148, 85, 1) 0%, rgba(252, 236, 182, 1) 100%);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+.gradient-text,
+.gradient-text-animated {
+  background-image: linear-gradient(45deg, #D38312 10%, #A83279 90%);
+  background-size: 200% 100%;
+  background-position: 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: all 0.3s ease-in-out;
+}
+
+.gradient-text {
+  color: transparent;
+  background-position: 0 0;
+}
+
+.gradient-text-animated:hover {
+   color: transparent;
+   animation: text-gradient-swipe 3s linear infinite;
+}
+
+@keyframes text-gradient-swipe {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Icon pop when ANCHOR is hovered */
+.link-pop-icon:hover .icon-pop {
+  animation: icon-pop 0.9s ease-in-out infinite;
+}
+
+@keyframes icon-pop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* solid + gradient layers will crossfade */
+.icon-fill-base,
+.icon-fill-grad {
+  transition: opacity 220ms ease-out;
+}
+
+/* default state: show base, hide gradient */
+.icon-fill-base {
+  opacity: 1;
+}
+
+.icon-fill-grad {
+  opacity: 0;
+}
+
+/* on hover over the SVG (or its parent), show gradient */
+.icon-gradient-hover:hover .icon-fill-base {
+  opacity: 0;
+}
+
+.icon-gradient-hover:hover .icon-fill-grad {
+  opacity: 1;
+}
+
+.gradient-line {
+  background-image: linear-gradient(90deg, #D38312 0%, #A83279 100%);
+}
+
 /* Now you can use your tokens in classes: 
    <div class="text-primary font-inter md:text-xl lg:text-2xl">…</div> */
 
