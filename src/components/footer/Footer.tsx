@@ -4,15 +4,15 @@ import SocialIcons from '../header/partials/SocialIcons';
 
 const navigation = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
+  { label: 'About Us', href: '/about-us' },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-dark-grey text-copper px-6 py-[120px]">
-      <div className="max-w-7xl mx-auto flex flex-col gap-8">
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-8">
         {/* Top Row: Logo + Nav + Social */}
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Logo */}
@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
             {/* Navigation */}
-            <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium uppercase tracking-wide">
+            <nav className="flex flex-wrap justify-center gap-6 text-sm font-poppins font-medium tracking-wide">
                 {navigation.map((item) => (
                     <Link
                         key={item.label}
@@ -54,3 +54,4 @@ export default function Footer() {
 }
 // This Footer component implements a responsive footer with a logo, navigation links, and social media icons.
 // It includes a copyright notice that updates automatically with the current year.
+

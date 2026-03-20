@@ -12,13 +12,13 @@ type Feature = {
 
 const features: Feature[] = [
     {
-        image: '/images/bricks-quality-img2.png',
+        image: '/images/example-house2.png',
         title: 'Viziune și Inovație',
         description:
             'Abordăm fiecare proiect cu o perspectivă proaspătă, integrând cele mai noi tehnologii în designul rezidențial contemporan.',
     },
     {
-        image: '/images/example-house2.png',
+        image: '/images/bricks-quality-img2.png',
         title: 'Calitate superioară',
         description:
             'Selecționăm riguros materialele și colaborăm doar cu experți pentru a garanta durabilitatea și rafinamentul locuinței tale.',
@@ -79,14 +79,14 @@ export default function ChooseUs() {
                         className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start"
                     >
                         <div>
-                            <p className="text-[12px] md:text-[13px] tracking-[0.28em] uppercase gradient-text-gold font-inter mb-6">
+                            <p className="text-[12px] md:text-[13px] tracking-[0.28em] uppercase text-gold font-inter mb-6">
                                 Exclusivitate &amp; Excelență
                             </p>
 
                             <h2 className="h2">
                                 <span className="text-white font-[300]">De ce să alegi</span>
                                 <br />
-                                <span className="italic gradient-text-gold">Ares Residence</span>
+                                <span className="italic text-gold">Ares Residence</span>
                             </h2>
                         </div>
 
@@ -124,9 +124,9 @@ export default function ChooseUs() {
                                             priority={index < 2}
                                             className="
                                                 object-cover opacity-35
-                                                grayscale
+                                                grayscale-0 lg:grayscale
                                                 transition-all duration-500 ease-out
-                                                group-hover:grayscale-0
+                                                lg:group-hover:grayscale-0
                                                 group-hover:opacity-45
                                             "
                                         />
@@ -165,4 +165,5 @@ export default function ChooseUs() {
         </section>
     );
 }
+
 

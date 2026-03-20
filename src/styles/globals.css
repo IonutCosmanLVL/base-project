@@ -60,7 +60,12 @@
 }
 
 html {
-   @apply bg-background text-primary font-play scroll-smooth;
+   @apply bg-background text-primary font-play;
+}
+
+a[href],
+button {
+  cursor: pointer;
 }
 
 .text-shadow-sm {
