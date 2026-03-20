@@ -11,7 +11,7 @@ const menuLinks = [
   { text: 'Home', href: '/' },
   { text: 'About Us', href: '/about-us' },
   { text: 'Gallery', href: '/gallery' },
-  { text: 'Contact', href: '/contact' },
+  { text: 'Contact', href: '/#contact' },
 ];
 
 export default function Header() {
