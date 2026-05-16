@@ -104,6 +104,7 @@ export default function AboutUsPage() {
                         priority
                         className="object-cover opacity-45"
                         sizes="100vw"
+                        quality={68}
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,22,21,0.96)_0%,rgba(20,22,21,0.84)_38%,rgba(20,22,21,0.5)_72%,rgba(20,22,21,0.28)_100%)]" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(182,153,90,0.15),transparent_28%)]" />
@@ -254,6 +255,7 @@ export default function AboutUsPage() {
                                 fill
                                 className="object-cover mix-blend-overlay"
                                 sizes="100vw"
+                                quality={60}
                             />
                         </div>
 
@@ -290,6 +292,9 @@ export default function AboutUsPage() {
         </main>
     );
 }
+
+
+
 
 
 

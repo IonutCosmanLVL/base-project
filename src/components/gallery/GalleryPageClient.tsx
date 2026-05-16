@@ -34,6 +34,7 @@ const constructionCollections: Record<
     {
         title: string;
         subtitle: string;
+        description: string;
         featured: { src: string; alt: string; phase: string; title: string };
         secondary: { src: string; alt: string }[];
     }
@@ -41,6 +42,8 @@ const constructionCollections: Record<
     construction: {
         title: "Etape Constructie",
         subtitle: "Technical Raw Beauty",
+        description:
+            "Urmarim fiecare faza de executie, de la structura si fundatii pana la inchideri si detalii tehnice care definesc calitatea finala.",
         featured: {
             src: "/images/ares-house-v4.png",
             alt: "Structura beton armat",
@@ -55,6 +58,8 @@ const constructionCollections: Record<
     homes: {
         title: "Case Finalizate",
         subtitle: "Completed Residences",
+        description:
+            "O selectie de locuinte finalizate care surprind expresia arhitecturala, proportiile si materialitatea specifice Ares Residence.",
         featured: {
             src: "/images/ares-house-v3.png",
             alt: "Casa finalizata Ares Residence",
@@ -69,6 +74,8 @@ const constructionCollections: Record<
     interiors: {
         title: "Design Interior",
         subtitle: "Interior Material Moodboard",
+        description:
+            "Atmosfera interioara, texturile si compozitiile vizuale care completeaza experienta unei locuinte premium contemporane.",
         featured: {
             src: "/images/example-house2.png",
             alt: "Interior premium Ares Residence",
@@ -186,6 +193,7 @@ export default function GalleryPageClient() {
                         priority
                         className="object-cover opacity-45"
                         sizes="100vw"
+                        quality={68}
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(20,22,21,0.96)_0%,rgba(20,22,21,0.84)_38%,rgba(20,22,21,0.5)_72%,rgba(20,22,21,0.28)_100%)]" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(182,153,90,0.15),transparent_28%)]" />
@@ -207,34 +215,48 @@ export default function GalleryPageClient() {
                 </div>
             </header>
 
-            <section className="border-y border-black/8 bg-white py-6">
-                <div className="mx-auto flex max-w-[1440px] flex-wrap justify-center gap-8 px-6 lg:gap-14 lg:px-8">
-                    {filters.map((filter) => {
-                        const isActive = activeFilter === filter.key;
+            <section className="bg-white pt-[150px] pb-10">
+                <div className="mx-auto max-w-[1440px] px-6 lg:px-8">
+                    <div className="mx-auto mb-20 max-w-3xl text-center">
+                        <h2 className="font-poppins text-3xl font-[700] tracking-[-0.04em] text-dark-grey md:text-4xl">
+                            Exploreaza galeria Ares Residence
+                        </h2>
+                        <p className="mt-4 font-inter text-base leading-8 text-dark-grey/65 md:text-lg">
+                            Alege perspectiva care te intereseaza si descopera imagini dedicate
+                            fiecarei etape, de la constructie la proiecte finalizate si design interior.
+                        </p>
+                    </div>
 
-                        return (
-                            <button
-                                key={filter.key}
-                                type="button"
-                                onClick={() => setActiveFilter(filter.key)}
-                                className={`border-b-2 pb-1 font-poppins text-sm uppercase tracking-[0.2em] transition-colors duration-300 ${
-                                    isActive
-                                        ? "border-gold text-gold"
-                                        : "border-transparent text-dark-grey/55 hover:text-dark-grey"
-                                }`}
-                            >
-                                {filter.label}
-                            </button>
-                        );
-                    })}
+                    <div className="border-y border-black/8 py-6">
+                        <div className="mx-auto max-w-[1440px]">
+                            <div className="flex flex-wrap justify-center gap-8 lg:gap-14">
+                                {filters.map((filter) => {
+                                    const isActive = activeFilter === filter.key;
+
+                                    return (
+                                        <button
+                                            key={filter.key}
+                                            type="button"
+                                            onClick={() => setActiveFilter(filter.key)}
+                                            className={`border-b-2 pb-1 font-poppins text-sm uppercase tracking-[0.2em] transition-colors duration-300 ${
+                                                isActive
+                                                    ? "border-gold text-gold"
+                                                    : "border-transparent text-dark-grey/55 hover:text-dark-grey"
+                                            }`}
+                                        >
+                                            {filter.label}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section
-                className="bg-white px-6 pb-20 pt-10 text-dark-grey md:px-12 lg:px-20 lg:pb-24 lg:pt-12"
-            >
+            <section className="bg-white px-6 pb-20 pt-10 text-dark-grey md:px-12 lg:px-20 lg:pb-24 lg:pt-12">
                 <div className="mx-auto max-w-[1440px]">
-                    <div className="mb-14 flex items-baseline gap-6">
+                    <div className="mb-6 flex items-baseline gap-6">
                         <h2 className="font-poppins text-4xl font-[700] tracking-[-0.04em]">
                             {activeConstructionCollection.title}
                         </h2>
@@ -244,6 +266,10 @@ export default function GalleryPageClient() {
                         </span>
                     </div>
 
+                    <p className="mb-14 max-w-3xl font-inter text-lg leading-8 text-dark-grey/65">
+                        {activeConstructionCollection.description}
+                    </p>
+
                     <div className="grid grid-cols-1 gap-6 md:h-[780px] md:grid-cols-12">
                         <div className="group relative overflow-hidden bg-dark-grey md:col-span-8">
                             <Image
@@ -252,6 +278,7 @@ export default function GalleryPageClient() {
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 768px) 100vw, 66vw"
+                                quality={64}
                             />
                             <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-8">
                                 <div>
@@ -287,7 +314,7 @@ export default function GalleryPageClient() {
 
             <section className="overflow-hidden bg-dark-grey px-6 py-20 md:px-12 lg:px-20 lg:py-24">
                 <div className="mx-auto max-w-[1440px]">
-                    <div className="mb-14 flex items-baseline gap-6 justify-end">
+                    <div className="mb-14 flex items-baseline justify-end gap-6">
                         <span className="hidden font-inter text-xs uppercase tracking-[0.3em] text-gold/70 md:block">
                             The Ares Style
                         </span>
@@ -339,6 +366,7 @@ export default function GalleryPageClient() {
                                             fill
                                             className="object-cover shadow-[0_32px_64px_-12px_rgba(16,20,26,0.4)]"
                                             sizes="(max-width: 768px) 100vw, 60vw"
+                                            quality={68}
                                         />
                                     </motion.div>
                                 </div>
@@ -521,6 +549,9 @@ export default function GalleryPageClient() {
         </main>
     );
 }
+
+
+
 
 
 

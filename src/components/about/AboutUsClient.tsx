@@ -21,7 +21,7 @@ export default function AboutUsClient() {
     };
 
     return (
-        <section className="relative py-[120px] px-[24px] xl:px-20 bg-white">
+        <section className="relative py-[60px] lg:py-[120px] px-[24px] xl:px-20 bg-white">
             <div className="xl:max-w-[1440px] w-full mx-auto flex flex-col items-start overflow-hidden lg:overflow-visible">
                 <div className="lg:max-w-[75%] z-5">
                     <motion.h2
