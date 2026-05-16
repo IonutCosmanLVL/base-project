@@ -2,68 +2,71 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight, Phone, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 
 export default function Hero() {
-    // ========== Constants ==========
-    const HERO_IMAGE = "/images/ares-night.png";
-    const PHONE_DISPLAY = "0712 345 678";
-    const PHONE_HREF = "+40712345678";
+    const HERO_IMAGE = "/images/ares-generated-08-compress.png";
     const LOCATION_NAME = "Ares Residence";
     const LOCATION_URL = "#contact";
-    const COMPANY_NAME = "ARES";
-    const COMPANY_CITY = "Bucuresti"; // TODO: Update with actual city
+    const COMPANY_NAME = "Ares Residence";
+    const COMPANY_CITY = "Iași";
+    const PHONE_HREF = "+40712345678";
 
-    // ========== Animation Variants - grouped by component ==========
-    // Heading and main title animations
-    const textBlockVariants: Variants = {
-        hidden: { opacity: 0, y: 30 },
+    const titleVariants: Variants = {
+        hidden: { opacity: 0, x: -64, y: 16 },
         visible: {
             opacity: 1,
+            x: 0,
             y: 0,
             transition: {
-                duration: 0.8,
+                duration: 0.9,
                 ease: [0.2, 0, 0, 1] as const,
             },
         },
     };
 
-    const buttonVariants: Variants = {
-        hidden: { opacity: 0, y: 20 },
+    const copyVariants: Variants = {
+        hidden: { opacity: 0, x: 54, y: 16 },
         visible: {
             opacity: 1,
+            x: 0,
             y: 0,
             transition: {
-                duration: 0.6,
+                duration: 0.9,
+                delay: 0.12,
                 ease: [0.2, 0, 0, 1] as const,
-                delay: 0.4,
             },
         },
     };
 
-    const mapLinkVariants: Variants = {
-        hidden: { opacity: 0, y: 10 },
+    const imageVariants: Variants = {
+        hidden: { opacity: 0, y: 36, scale: 0.985 },
         visible: {
             opacity: 1,
             y: 0,
+            scale: 1,
             transition: {
-                duration: 0.5,
+                duration: 1,
+                delay: 0.18,
                 ease: [0.2, 0, 0, 1] as const,
-                delay: 0.6,
             },
         },
     };
 
-    // ========== Structured Data for SEO ==========
     const structuredData = {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": ["LocalBusiness", "RealEstateAgent"],
         name: COMPANY_NAME,
-        description: "Arhitectura moderna si design rezidential contemporan",
+        description:
+            `Proiect rezidențial premium în ${COMPANY_CITY}, cu arhitectură contemporană, design modern și confort autentic.`,
         image: HERO_IMAGE,
         telephone: PHONE_HREF,
+        address: {
+            "@type": "PostalAddress",
+            addressLocality: COMPANY_CITY,
+            addressCountry: "RO",
+        },
         areaServed: {
             "@type": "City",
             name: COMPANY_CITY,
@@ -78,145 +81,95 @@ export default function Hero() {
     };
 
     return (
-        <>
-            {/* ========== Hero Section Container ========== */}
-            <section
-                className="relative w-full overflow-hidden min-h-[95vh] text-tan-light"
-                aria-label="Hero section featuring ARES Residence"
-                role="region"
-            >
-                {/* ========== Background Image ========== */}
-                <Image
-                    src={HERO_IMAGE}
-                    alt={`${LOCATION_NAME} - ${COMPANY_NAME} - Arhitectura moderna in ${COMPANY_CITY}`}
-                    fill
-                    priority
-                    sizes="100vw"
-                    className="object-cover"
-                    title={`${LOCATION_NAME} - Design rezidential contemporan`}
-                />
+        <section
+            className="bg-white px-6 pb-16 pt-[140px] text-dark-grey lg:px-8 lg:pb-0 lg:pt-[170px]"
+            aria-label={`Prezentare ${LOCATION_NAME} ${COMPANY_CITY}`}
+            role="region"
+        >
+            <div className="mx-auto max-w-[1440px]">
+                <div className="grid items-end gap-[30px] lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-16">
+                    <motion.div variants={titleVariants} initial="hidden" animate="visible">
+                        <span className="mb-5 block font-inter text-[12px] uppercase tracking-[0.34em] text-gold">
+                            Arhitectură contemporană premium
+                        </span>
+                        <h1 className="lg:max-w-[12ch] font-poppins text-[48px] font-[700] leading-[1] tracking-[1px] text-dark-grey sm:text-6xl lg:text-[88px]">
+                            Construim spații care se simt ca <span className="text-gold">acasă</span>
+                        </h1>
+                    </motion.div>
 
-                {/* ========== Gradient Overlay (Readability) ========== */}
-                <div
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent"
-                    aria-hidden="true"
-                    role="presentation"
-                />
+                    <motion.div
+                        className="pb-2 lg:pb-7"
+                        variants={copyVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <p className="max-w-[360px] font-inter text-[16px] lg:text-xl leading-[24px] text-dark-grey/72">
+                            Design rezidențial modern în Iași, confort autentic și detalii gândite pentru viața de zi cu zi.
+                        </p>
+                    </motion.div>
+                </div>
 
-                {/* ========== Main Content Container ========== */}
                 <motion.div
-                    className="absolute inset-x-0 bottom-0 z-20 text-tan-light"
+                    className="relative mt-[30px] lg:mt-16 overflow-hidden rounded-[4px] bg-[#f6f3ed] shadow-[0_28px_80px_rgba(20,22,21,0.12)]"
+                    variants={imageVariants}
                     initial="hidden"
                     animate="visible"
                 >
-                    {/* ========== Content Wrapper ========== */}
-                    <div
-                        className="mx-auto flex min-h-[72vh] w-full max-w-[1440px] flex-col items-center justify-between gap-8 px-6 lg:h-auto lg:min-h-[60vh] lg:items-start lg:px-8"
-                    >
-                        {/* ========== Hero Headline + CTA Button ========== */}
-                        <motion.div
-                            className="flex min-h-0 flex-col items-center gap-10 md:gap-12 lg:min-h-[55vh] lg:max-w-[75%] lg:items-start lg:gap-[90px]"
-                            variants={textBlockVariants}
-                        >
-                            <div className="flex flex-col items-start lg:items-start">
-                                <span className="mb-6 block font-inter text-[12px] uppercase tracking-[0.34em] text-gold">
-                                    Arhitectura contemporana
-                                </span>
-
-                                {/* ========== Main Heading (H1) ========== */}
-                                <h1
-                                    className="text-left font-poppins text-5xl font-[700] leading-[1] tracking-[1px] text-white sm:text-6xl lg:text-left lg:text-[88px]"
-                                >
-                                    Casa ta este aici, intr-o{" "}
-                                    <span className="text-gold">arhitectura</span> moderna.
-                                </h1>
-                            </div>
-
-                            <p className="-mt-12 hidden text-left font-inter text-xl font-light leading-relaxed text-slate-200 lg:-mt-16 lg:block lg:text-left">
-                                Redefinim conceptul de acasa prin design contemporan si executie premium,
-                                gandite special pentru stilul tau de viata.
-                            </p>
-
-                            {/* ========== Hero CTA Buttons ========== */}
-                            <motion.div
-                                className="flex w-full flex-col items-start gap-4 md:flex-row md:justify-center lg:w-auto lg:justify-start lg:items-start"
-                                variants={buttonVariants}
-                            >
-                                <a
-                                    href={`tel:${PHONE_HREF}`}
-                                    className="inline-flex h-14 w-full max-w-[320px] items-center justify-center gap-2 rounded-full px-6 font-inter text-[14px] font-[600] uppercase tracking-[0.08em] text-tan-light btn-gold-bg transition-shadow duration-300 hover:shadow-lg md:w-auto md:px-[44px] md:text-[15px]"
-                                    aria-label={`Apeleaza ${PHONE_DISPLAY}`}
-                                    title={`Contacteaza-ne: ${PHONE_DISPLAY}`}
-                                >
-                                    <Phone
-                                        className="h-4 w-4"
-                                        aria-hidden="true"
-                                        role="presentation"
-                                    />
-                                    <span className="leading-none">
-                                        {PHONE_DISPLAY}
-                                    </span>
-                                </a>
-
-                                <a
-                                    href="#contact"
-                                    onClick={scrollToContact}
-                                    className="
-                                        inline-flex h-14 w-full max-w-[320px] items-center justify-center gap-3 md:w-auto
-                                        rounded-full
-                                        border border-[#a1783f]/40
-                                        bg-black/20 backdrop-blur
-                                        px-6
-                                        font-inter text-[14px] md:text-[15px] font-[600]
-                                        text-white/85
-                                        transition-all duration-300 ease-out
-                                        hover:bg-black/35 hover:border-[#a1783f]/70
-                                        focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a1783f] focus-visible:ring-offset-2 focus-visible:ring-offset-black
-                                    "
-                                >
-                                    Programeaza o Vizionare
-                                    <ArrowRight className="h-4 w-4 text-[#a1783f]" />
-                                </a>
-                            </motion.div>
-                        </motion.div>
-
-                        {/* ========== Location Link ========== */}
-                        <motion.div
-                            className="mb-10 flex w-full justify-center sm:mb-[75px] lg:justify-end"
-                            variants={mapLinkVariants}
-                        >
-                            <a
-                                href={LOCATION_URL}
-                                onClick={scrollToContact}
-                                className="text-[16px] sm:text-[18px] font-poppins flex items-center gap-[6px] group link-pop-icon rounded-md px-2 py-1"
-                                rel="noopener noreferrer"
-                                aria-label={`Viziteaza ${LOCATION_NAME} pe harta`}
-                                title={`${LOCATION_NAME} - ${COMPANY_CITY}`}
-                            >
-                                <MapPin
-                                    className="h-[26px] w-[22px] text-white transition-colors duration-300 group-hover:text-gold icon-pop"
-                                    aria-hidden="true"
-                                    role="presentation"
-                                />
-                                <span className="text-white transition-colors duration-300 group-hover:text-gold">
-                                    {LOCATION_NAME}
-                                </span>
-                            </a>
-                        </motion.div>
+                    <div className="relative aspect-[16/8] min-h-[420px] w-full">
+                        <Image
+                            src={HERO_IMAGE}
+                            alt={`${LOCATION_NAME} Iași - concept rezidențial modern cu arhitectură contemporană`}
+                            fill
+                            priority
+                            sizes="(max-width: 1440px) calc(100vw - 48px), 1440px"
+                            quality={72}
+                            className="object-cover object-[70%_center] md:object-center"
+                            title={`${LOCATION_NAME} Iași - design rezidențial contemporan`}
+                        />
                     </div>
-                </motion.div>
 
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-                />
-            </section>
-        </>
+                    <div
+                        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[38%] bg-gradient-to-t from-black/85 via-black/38 to-transparent"
+                        aria-hidden="true"
+                    />
+
+                    <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-4 sm:flex-row">
+                        <a
+                            href="#contact"
+                            onClick={scrollToContact}
+                            className="liquid-glass inline-flex h-14 w-full max-w-[320px] items-center justify-center rounded-full border border-white/30 px-6 font-inter text-[14px] font-[600] text-white sm:w-auto md:text-[15px]"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className="liquid-glass-hover-shine"
+                            />
+                            <span>Programează o vizionare</span>
+                        </a>
+                    </div>
+
+                    <a
+                        href={LOCATION_URL}
+                        onClick={scrollToContact}
+                        className="group absolute bottom-6 right-6 z-20 hidden items-center gap-[6px] px-2 py-1 md:inline-flex"
+                        aria-label={`Vizitează ${LOCATION_NAME} pe hartă`}
+                        title={`${LOCATION_NAME} ${COMPANY_CITY} - contactează-ne`}
+                    >
+                        <MapPin
+                            className="h-[22px] w-[20px] text-white drop-shadow transition-colors duration-300 group-hover:text-gold"
+                            aria-hidden="true"
+                            role="presentation"
+                        />
+                        <span className="font-poppins text-[16px] font-[500] text-white drop-shadow transition-colors duration-300 group-hover:text-gold">
+                            {LOCATION_NAME}
+                        </span>
+                    </a>
+                </motion.div>
+            </div>
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+            />
+        </section>
     );
 }
-
-
-
-
-
-

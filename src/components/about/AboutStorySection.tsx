@@ -89,6 +89,7 @@ export default function AboutStorySection() {
                                     src={timeline[previousIndex].image}
                                     alt={timeline[previousIndex].imageAlt}
                                     fill
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
                                     className="object-cover grayscale transition duration-500 group-hover:grayscale-0"
                                 />
                             </motion.div>
@@ -105,6 +106,7 @@ export default function AboutStorySection() {
                                 src={activeItem.image}
                                 alt={activeItem.imageAlt}
                                 fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 className="object-cover grayscale transition duration-500 group-hover:grayscale-0"
                             />
                         </motion.div>
@@ -139,7 +141,7 @@ export default function AboutStorySection() {
                                     key={item.title}
                                     type="button"
                                     onClick={() => handleSelect(index)}
-                                    className="group relative block w-full border-l border-black/10 pl-10 text-left cursor-pointer"
+                                    className="group relative block w-full cursor-pointer border-l border-black/10 pl-10 text-left"
                                 >
                                     <span
                                         className={`absolute -left-[5px] top-1 h-[10px] w-[10px] rounded-full transition-all duration-300 ${
