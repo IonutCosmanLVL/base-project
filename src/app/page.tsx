@@ -7,7 +7,7 @@ import ContactUs from '@/components/contact/ContactUs';
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <Hero />
       <AboutUs />
       <ChooseUs />
@@ -38,6 +38,6 @@ export default function HomePage() {
       <Gallery />
       <ContactUs />
       {/* Add other sections here */}
-    </main>
+    </>
   );
 }

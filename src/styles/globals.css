@@ -201,3 +201,154 @@ button {
 
 /* Now you can use your tokens in classes: 
    <div class="text-primary font-inter md:text-xl lg:text-2xl">…</div> */
+@property --liquid-glass-border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Liquid glass utility */
+.liquid-glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  cursor: pointer;
+  color: white;
+  border-color: transparent !important;
+  background: rgba(10, 12, 18, 0.16);
+  transform: translateZ(0);
+  box-shadow:
+    0 14px 46px rgba(10, 12, 18, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.liquid-glass::before,
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.liquid-glass::before {
+  z-index: 0;
+  background: rgba(10, 12, 18, 0.18);
+  backdrop-filter: blur(26px) saturate(175%) contrast(1.04);
+}
+
+.liquid-glass::after {
+  z-index: 3;
+  padding: 2px;
+  border-radius: inherit;
+  opacity: 1;
+  background:
+    conic-gradient(
+      from var(--liquid-glass-border-angle),
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 1) 50%,
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.18) 42%,
+      rgba(255, 255, 255, 0.4)
+    );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, 0.5),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.2);
+  animation: liquid-glass-border 4s linear infinite;
+}
+
+.liquid-glass > * {
+  position: relative;
+  z-index: 2;
+}
+
+.liquid-glass-hover-shine {
+  position: absolute;
+  inset: -35% -70%;
+  z-index: 1 !important;
+  pointer-events: none;
+  opacity: 1;
+  transform: translateX(60%) rotate(12deg);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.04) 35%,
+      rgba(255, 255, 255, 0.78) 50%,
+      rgba(255, 255, 255, 0.05) 65%,
+      transparent 100%
+    );
+  mix-blend-mode: screen;
+  filter: blur(10px);
+  transition: transform 0.95s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.liquid-glass:hover {
+  border-color: transparent !important;
+}
+
+.liquid-glass:hover .liquid-glass-hover-shine {
+  transform: translateX(-60%) rotate(12deg);
+}
+
+.liquid-glass:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+@keyframes liquid-glass-shine {
+  0% {
+    opacity: 0;
+    background-position: -145% 0, 0 0;
+  }
+  12% {
+    opacity: 1;
+    background-position: -90% 0, 0 0;
+  }
+  52% {
+    opacity: 1;
+    background-position: 145% 0, 0 0;
+  }
+  68% {
+    opacity: 0;
+    background-position: 145% 0, 0 0;
+  }
+  100% {
+    opacity: 0;
+    background-position: 145% 0, 0 0;
+  }
+}
+
+@keyframes liquid-glass-border {
+  to {
+    --liquid-glass-border-angle: 360deg;
+  }
+}
+
+@keyframes liquid-glass-warp {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.5%, -2%, 0) scale(1.04);
+  }
+}

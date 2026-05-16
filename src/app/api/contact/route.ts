@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-const RESEND_API_URL = "https://api.resend.com/emails";
-const CONTACT_RECIPIENT = "ionut.cosman@ymail.com";
+const CONTACT_RECIPIENT = "ionutcosman.d@gmail.com";
 const DEFAULT_FROM = "Ares Residence <onboarding@resend.dev>";
 
 type ContactPayload = {
@@ -44,35 +44,30 @@ export async function POST(request: Request) {
         );
     }
 
-    const response = await fetch(RESEND_API_URL, {
-        method: "POST",
-        headers: {
-            Authorization: `Bearer ${apiKey}`,
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            from: process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM,
-            to: [CONTACT_RECIPIENT],
-            reply_to: email,
-            subject: `Mesaj nou Ares Residence de la ${name}`,
-            text: [
-                `Nume: ${name}`,
-                `Email: ${email}`,
-                `Telefon: ${phone}`,
-                "",
-                "Mesaj:",
-                message,
-            ].join("\n"),
-        }),
-    });
+    try {
+        const resend = new Resend(apiKey);
 
-    if (!response.ok) {
-        const errorText = await response.text();
+        await resend.emails.send({
+            from: process.env.CONTACT_FROM_EMAIL || DEFAULT_FROM,
+            to: CONTACT_RECIPIENT,
+            replyTo: email,
+            subject: `Mesaj nou Ares Residence de la ${name}`,
+            html: `
+                <div>
+                    <p><strong>Nume:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Telefon:</strong> ${phone}</p>
+                    <p><strong>Mesaj:</strong></p>
+                    <p>${message.replace(/\n/g, "<br />")}</p>
+                </div>
+            `,
+        });
+
+        return NextResponse.json({ ok: true });
+    } catch {
         return NextResponse.json(
-            { error: "Mesajul nu a putut fi trimis.", details: errorText },
+            { error: "Mesajul nu a putut fi trimis." },
             { status: 502 }
         );
     }
-
-    return NextResponse.json({ ok: true });
 }

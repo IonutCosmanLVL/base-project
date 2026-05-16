@@ -162,15 +162,7 @@ export default function ContactUs() {
                                 />
                             </div>
 
-                            <div className="mt-12 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                                <button
-                                    type="submit"
-                                    disabled={isSubmitting}
-                                    className="inline-flex cursor-pointer items-center justify-center bg-dark-grey px-10 py-4 font-inter text-[13px] font-[700] uppercase tracking-[0.08em] text-white shadow-sm transition-all duration-200 hover:bg-gold disabled:opacity-60 disabled:hover:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-white"
-                                >
-                                    {isSubmitting ? 'Se trimite...' : 'Trimite mesajul'}
-                                </button>
-
+                            <div className="mt-12 flex flex-col items-start gap-4">
                                 {status !== 'idle' && (
                                     <p
                                         className={`font-inter text-[14px] ${
@@ -180,6 +172,14 @@ export default function ContactUs() {
                                         {statusMessage}
                                     </p>
                                 )}
+
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="inline-flex cursor-pointer items-center justify-center bg-dark-grey px-10 py-4 font-inter text-[13px] font-[700] uppercase tracking-[0.08em] text-white shadow-sm transition-all duration-200 hover:bg-gold disabled:opacity-60 disabled:hover:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+                                >
+                                    {isSubmitting ? 'Se trimite...' : 'Trimite mesajul'}
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -254,3 +254,4 @@ function Field(props: {
         </div>
     );
 }
+
