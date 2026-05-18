@@ -1,9 +1,38 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Inter, Oswald, Poppins } from "next/font/google";
 import "../styles/globals.css";
 import "../styles/styles.scss";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+
+const cormorant = Cormorant_Garamond({
+    subsets: ["latin"],
+    weight: ["400", "600", "700"],
+    variable: "--font-play",
+    display: "swap",
+});
+
+const inter = Inter({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-inter",
+    display: "swap",
+});
+
+const oswald = Oswald({
+    subsets: ["latin"],
+    weight: ["200", "300", "400", "500", "600", "700"],
+    variable: "--font-oswald",
+    display: "swap",
+});
+
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700", "800"],
+    variable: "--font-poppins",
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://ares-residence.ro"),
@@ -53,7 +82,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="ro">
-            <body className="bg-white text-primary font-play">
+            <body className={`${cormorant.variable} ${inter.variable} ${oswald.variable} ${poppins.variable} bg-white text-primary font-play`}>
                 <Header />
                 <main>{children}</main>
                 <Footer />

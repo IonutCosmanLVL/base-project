@@ -120,7 +120,7 @@ export default function AboutUsPage() {
                             <br />
                             viziune si calitate
                         </h1>
-                        <p className="mt-8 max-w-2xl font-inter text-lg leading-[1.85] text-white/70 md:text-xl">
+                        <p className="mt-8 max-w-2xl font-inter text-[18px] leading-[28px] text-white/70">
                             Redefinim conceptul de locuire urbana prin proiecte care imbina
                             estetica moderna cu functionalitatea reala. Ares Residence nu
                             construieste doar cladiri, ci repere arhitecturale gandite pentru
@@ -138,7 +138,7 @@ export default function AboutUsPage() {
                         <h2 className="font-poppins text-4xl font-[700] tracking-[-0.03em] text-white lg:text-6xl">
                             Valorile noastre
                         </h2>
-                        <p className="mt-6 font-inter text-lg leading-8 text-white/60">
+                        <p className="mt-6 font-inter text-[18px] leading-[28px] text-white/60">
                             Principiile care definesc felul in care proiectam, construim si
                             relationam cu fiecare familie care ne alege.
                         </p>
@@ -177,7 +177,7 @@ export default function AboutUsPage() {
                                             {value.title}
                                         </h3>
                                         <p
-                                            className={`mt-4 max-w-[34rem] font-inter text-[16px] leading-8 ${
+                                            className={`mt-4 max-w-[34rem] font-inter text-[18px] leading-[28px] ${
                                                 value.accent ? "text-dark-grey/80" : "text-white/60"
                                             }`}
                                         >
@@ -214,7 +214,7 @@ export default function AboutUsPage() {
                     <h2 className="font-poppins text-4xl font-[700] tracking-[-0.03em] text-dark-grey lg:text-6xl">
                         Procesul de lucru
                     </h2>
-                    <p className="mt-6 max-w-3xl font-inter text-lg leading-8 text-dark-grey/65">
+                    <p className="mt-6 max-w-3xl font-inter text-[18px] leading-[28px] text-dark-grey/65">
                         Fiecare etapa este gandita pentru claritate, control si calitate,
                         astfel incat drumul de la concept la livrare sa fie coerent si usor de urmarit.
                     </p>
@@ -264,7 +264,7 @@ export default function AboutUsPage() {
                                 <h2 className="font-poppins text-4xl font-[700] leading-[1.05] tracking-[-0.04em] lg:text-6xl">
                                     Esti gata sa iti gasesti noua casa?
                                 </h2>
-                                <p className="mt-6 font-inter text-lg leading-8 text-dark-grey/80">
+                                <p className="mt-6 font-inter text-[18px] leading-[28px] text-dark-grey/80">
                                     Descopera proiectele noastre actuale sau programeaza o discutie
                                     pentru a vedea mai indeaproape standardul Ares Residence.
                                 </p>

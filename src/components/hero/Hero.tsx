@@ -40,20 +40,6 @@ export default function Hero() {
         },
     };
 
-    const imageVariants: Variants = {
-        hidden: { opacity: 0, y: 36, scale: 0.985 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 1,
-                delay: 0.18,
-                ease: [0.2, 0, 0, 1] as const,
-            },
-        },
-    };
-
     const structuredData = {
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "RealEstateAgent"],
@@ -92,7 +78,7 @@ export default function Hero() {
                         <span className="mb-5 block font-inter text-[12px] uppercase tracking-[0.34em] text-gold">
                             Arhitectură contemporană premium
                         </span>
-                        <h1 className="lg:max-w-[12ch] font-poppins text-[48px] font-[700] leading-[1] tracking-[1px] text-dark-grey sm:text-6xl lg:text-[88px]">
+                        <h1 className="lg:max-w-[12ch] font-poppins text-[48px] font-[600] leading-[54px] tracking-[1px] text-dark-grey sm:text-6xl lg:text-[88px] lg:leading-[100px]">
                             Construim spații care se simt ca <span className="text-gold">acasă</span>
                         </h1>
                     </motion.div>
@@ -103,17 +89,14 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                     >
-                        <p className="max-w-[360px] font-inter text-[16px] lg:text-xl leading-[24px] text-dark-grey/72">
+                        <p className="max-w-[360px] font-inter text-[18px] leading-[28px] text-dark-grey/72">
                             Design rezidențial modern în Iași, confort autentic și detalii gândite pentru viața de zi cu zi.
                         </p>
                     </motion.div>
                 </div>
 
-                <motion.div
+                <div
                     className="relative mt-[30px] lg:mt-16 overflow-hidden rounded-[4px] bg-[#f6f3ed] shadow-[0_28px_80px_rgba(20,22,21,0.12)]"
-                    variants={imageVariants}
-                    initial="hidden"
-                    animate="visible"
                 >
                     <div className="relative aspect-[16/8] min-h-[420px] w-full">
                         <Image
@@ -121,8 +104,9 @@ export default function Hero() {
                             alt={`${LOCATION_NAME} Iași - concept rezidențial modern cu arhitectură contemporană`}
                             fill
                             priority
+                            fetchPriority="high"
                             sizes="(max-width: 1440px) calc(100vw - 48px), 1440px"
-                            quality={72}
+                            quality={60}
                             className="object-cover object-[70%_center] md:object-center"
                             title={`${LOCATION_NAME} Iași - design rezidențial contemporan`}
                         />
@@ -133,11 +117,11 @@ export default function Hero() {
                         aria-hidden="true"
                     />
 
-                    <div className="absolute bottom-6 left-6 z-20 flex flex-col gap-4 sm:flex-row">
+                    <div className="absolute bottom-6 left-1/2 z-20 flex w-[calc(100%-48px)] -translate-x-1/2 flex-col items-center gap-4 sm:left-6 sm:w-auto sm:translate-x-0 sm:flex-row sm:items-start">
                         <a
                             href="#contact"
                             onClick={scrollToContact}
-                            className="liquid-glass inline-flex h-14 w-full max-w-[320px] items-center justify-center rounded-full border border-white/30 px-6 font-inter text-[14px] font-[600] text-white sm:w-auto md:text-[15px]"
+                            className="liquid-glass inline-flex h-14 w-full max-w-[320px] items-center justify-center border border-white/30 px-6 font-inter text-[14px] font-[600] text-white sm:w-auto md:text-[15px]"
                         >
                             <span
                                 aria-hidden="true"
@@ -163,7 +147,7 @@ export default function Hero() {
                             {LOCATION_NAME}
                         </span>
                     </a>
-                </motion.div>
+                </div>
             </div>
 
             <script

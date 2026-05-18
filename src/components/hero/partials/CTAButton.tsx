@@ -24,7 +24,7 @@ export default function CTAButton({
     'inline-flex items-center justify-center rounded-none border border-copper bg-copper text-white hover:border-gold hover:bg-gold hover:shadow-xl hover:-translate-y-1 px-[35px] py-3';
 
   const circleStyles =
-    'inline-flex h-28 w-28 items-center justify-center rounded-full bg-tan-light/95 text-neutral-900 shadow-2xl shadow-black/30 ring-1 ring-white/30 backdrop-blur hover:bg-copper hover:ring-copper hover:text-tan-light';
+  'inline-flex h-28 w-28 items-center justify-center bg-tan-light/95 text-neutral-900 shadow-2xl shadow-black/30 ring-1 ring-white/30 backdrop-blur hover:bg-copper hover:ring-copper hover:text-tan-light';
 
   return (
     <motion.div
