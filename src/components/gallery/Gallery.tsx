@@ -11,41 +11,44 @@ type GalleryCard = {
 
 const galleryCards: { left: GalleryCard; rightTop: GalleryCard; rightBottom: GalleryCard } = {
     left: {
-        src: '/images/desktop-ai-house.png',
-        alt: 'Exterior - Ares Residence',
+        src: '/images/ares-front-left-01.png',
+        alt: 'Exterior modern Ares Residence cu arhitectură contemporană',
     },
     rightTop: {
-        src: '/images/example-house2.png',
-        alt: 'Interior - Ares Residence',
+        src: '/images/floor-0-interior.png',
+        alt: 'Interior premium Ares Residence cu design minimalist',
     },
     rightBottom: {
-        src: '/images/example-house.png',
-        alt: 'Detaliu finisaje - Ares Residence',
+        src: '/images/ares-front-right-01.png',
+        alt: 'Detalii de finisaje și materiale pentru locuințe moderne',
     },
 };
 
 export default function Gallery() {
     return (
-        <section className="relative bg-dark-grey text-white px-6 xl:px-20 lg:mt-[-80px]">
+        <section
+            className="relative bg-dark-grey text-white px-6 xl:px-20"
+            aria-labelledby="homepage-gallery-title"
+        >
             {/* Subtle vignette background */}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_700px_at_50%_0%,rgba(255,255,255,0.06),transparent_60%),radial-gradient(900px_600px_at_80%_30%,rgba(161,120,63,0.12),transparent_60%)]" />
 
-            <div className="relative max-w-[1440px] mx-auto py-[100px] lg:pt-[250px] lg:pb-[200px]">
+            <div className="relative max-w-[1440px] mx-auto py-[100px] lg:pt-[80px] lg:pb-[80px]">
                 {/* Header */}
                 <div className="text-center max-w-[920px] mx-auto">
                     <p className="font-inter text-[12px] md:text-[13px] tracking-[0.28em] uppercase text-gold mb-6">
                         Portofoliu vizual
                     </p>
 
-                    <h2 className="h2">
+                    <h2 id="homepage-gallery-title" className="h2">
                         Galerie Proiecte
                     </h2>
 
                     <div className="mx-auto mt-6 h-[2px] w-16 bg-gold" />
 
-                    <p className="mt-8 p-lead leading-[30px] text-white/55">
-                        Descoperă rafinamentul în fiecare linie și textură. Galerie noastră surprinde echilibrul perfect
-                        între funcționalitate modernă și finisaje premium, definind un nou standard al luxului rezidențial.
+                    <p className="mt-8 p-lead text-white/55">
+                        Descoperă rafinamentul în fiecare linie și textură. Galeria noastră surprinde echilibrul dintre
+                        funcționalitate modernă, lumină naturală și finisaje premium pentru un stil de locuire contemporan.
                     </p>
                 </div>
 
@@ -60,7 +63,7 @@ export default function Gallery() {
                                 fill
                                 className="object-cover transition-transform duration-700 ease-out"
                                 sizes="(max-width: 1024px) 100vw, 55vw"
-                                priority
+                                quality={68}
                             />
 
                             {/* Soft bottom fade */}
@@ -70,22 +73,20 @@ export default function Gallery() {
                             <div className="absolute inset-x-0 bottom-6 flex justify-center px-6">
                                 <Link
                                     href="/gallery"
+                                    aria-label="Vezi galeria completă Ares Residence"
                                     className="
-                                        inline-flex items-center gap-3
-                                        rounded-full
-                                        border border-[#a1783f]/40
-                                        bg-black/20 backdrop-blur
-                                        px-6 py-3
-                                        font-inter text-[14px] md:text-[15px] font-[600]
-                                        text-white/85
-                                        transition-all duration-300 ease-out
-                                        hover:bg-black/35 hover:border-[#a1783f]/70
-                                        focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a1783f] focus-visible:ring-offset-2 focus-visible:ring-offset-black
+                                        liquid-glass inline-flex h-14 items-center justify-center gap-3
+                                        border border-white/30 px-6
+                                        font-inter text-[14px] font-[600] text-white md:text-[15px]
                                     "
                                 >
-                                    Vezi galeria completă
-                                    <ArrowRight className="h-4 w-4 text-[#a1783f]" />
-                                </Link>
+                                    <span
+                                        aria-hidden="true"
+                                        className="liquid-glass-hover-shine"
+                                    />
+                                    <span>Vezi galeria completă</span>
+                                    <ArrowRight className="h-4 w-4 text-white" aria-hidden="true" />
+{/*  */}                                </Link>
                             </div>
                         </div>
                     </div>
@@ -101,6 +102,7 @@ export default function Gallery() {
                                     fill
                                     className="object-cover transition-transform duration-700 ease-out"
                                     sizes="(max-width: 1024px) 100vw, 45vw"
+                                    quality={68}
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/25" />
                             </div>
@@ -115,6 +117,7 @@ export default function Gallery() {
                                     fill
                                     className="object-cover transition-transform duration-700 ease-out"
                                     sizes="(max-width: 1024px) 100vw, 45vw"
+                                    quality={68}
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/25" />
                             </div>

@@ -90,6 +90,7 @@ export default function AboutStorySection() {
                                     alt={timeline[previousIndex].imageAlt}
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 50vw"
+                                    quality={68}
                                     className="object-cover grayscale transition duration-500 group-hover:grayscale-0"
                                 />
                             </motion.div>
@@ -107,6 +108,7 @@ export default function AboutStorySection() {
                                 alt={activeItem.imageAlt}
                                 fill
                                 sizes="(max-width: 1024px) 100vw, 50vw"
+                                quality={68}
                                 className="object-cover grayscale transition duration-500 group-hover:grayscale-0"
                             />
                         </motion.div>

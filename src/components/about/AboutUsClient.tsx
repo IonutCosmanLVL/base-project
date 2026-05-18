@@ -2,16 +2,22 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 export default function AboutUsClient() {
-    const [headingRef, headingInView] = useInView({ threshold: 0.45, triggerOnce: true });
-    const [lineRef, lineInView] = useInView({ threshold: 0.45, triggerOnce: true });
-    const [paragraphRef, paragraphInView] = useInView({ threshold: 0.45, triggerOnce: true });
-    const [linkRef, linkInView] = useInView({ threshold: 0.45, triggerOnce: true });
-    const [imgRightRef, imgRightInView] = useInView({ threshold: 0.45, triggerOnce: true });
-    const [imgLeftRef, imgLeftInView] = useInView({ threshold: 0.45, triggerOnce: true });
+    const inViewOptions = {
+        threshold: 0.2,
+        triggerOnce: true,
+        rootMargin: '0px 0px 120px 0px',
+    };
+    const [headingRef, headingInView] = useInView(inViewOptions);
+    const [lineRef, lineInView] = useInView(inViewOptions);
+    const [paragraphRef, paragraphInView] = useInView(inViewOptions);
+    const [linkRef, linkInView] = useInView(inViewOptions);
+    const [imgRightRef, imgRightInView] = useInView(inViewOptions);
+    const [imgLeftRef, imgLeftInView] = useInView(inViewOptions);
 
     const variants = {
         hiddenUp: { opacity: 0, y: 40 },
@@ -21,11 +27,12 @@ export default function AboutUsClient() {
     };
 
     return (
-        <section className="relative py-[60px] lg:py-[120px] px-[24px] xl:px-20 bg-white">
+        <section className="relative py-[60px] lg:py-[120px] px-[24px] xl:px-20 bg-white" aria-labelledby="homepage-about-title">
             <div className="xl:max-w-[1440px] w-full mx-auto flex flex-col items-start overflow-hidden lg:overflow-visible">
                 <div className="lg:max-w-[75%] z-5">
                     <motion.h2
                         ref={headingRef}
+                        id="homepage-about-title"
                         className="h2 text-dark-grey mb-[55px] xl:mb-[85px]"
                         variants={variants}
                         initial="hiddenUp"
@@ -55,10 +62,10 @@ export default function AboutUsClient() {
                         >
                             <div className="p-lead text-grey mb-[60px] xl:mb-[110px] mt-[-10px] space-y-6">
                                 <p>
-                                    Ares Residence prezintă un remarcabil proiect imobiliar, menit să ducă mai departe tradiția dezvoltatorului de a crea opere de artă arhitecturale, conform standardelor occidentale, folosind materiale de cea mai înaltă calitate.
+                                    Ares Residence prezintă un proiect imobiliar premium în Iași, creat pentru a duce mai departe tradiția dezvoltatorului de a construi locuințe moderne, cu arhitectură atentă și materiale de cea mai înaltă calitate.
                                 </p>
                                 <p>
-                                    În cadrul acestui proiect, punem un accent deosebit pe oferirea unei experiențe excepționale. Ne dedicăm să vă ținem la curent cu fiecare etapă a construcției, asigurând transparență absolută.
+                                    În cadrul acestui proiect rezidențial, punem accent pe o experiență clară și transparentă. Vă ținem la curent cu fiecare etapă a construcției, de la concept până la predarea locuinței.
                                 </p>
                             </div>
 
@@ -70,9 +77,14 @@ export default function AboutUsClient() {
                             >
                                 <Link
                                     href="/about-us"
-                                    className="absolute bottom-[-25px] left-0 uppercase text-grey font-inter text-[16px] font-semibold hover:text-gold transition-colors duration-300"
+                                    aria-label="Află mai multe despre Ares Residence"
+                                    className="group absolute bottom-[-25px] left-0 inline-flex items-center gap-3 uppercase text-grey font-inter text-[16px] font-semibold transition-colors duration-300 hover:text-gold"
                                 >
-                                    despre noi
+                                    <span>despre noi</span>
+                                    <ArrowRight
+                                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                                        aria-hidden="true"
+                                    />
                                 </Link>
                             </motion.div>
                         </motion.div>
@@ -90,9 +102,11 @@ export default function AboutUsClient() {
                         transition={{duration: 0.6, ease: 'easeInOut' }}
                     >
                         <Image
-                            src="/images/black-house-bg.jpg"
-                            alt="Modern luxury home"
+                            src="/images/ares-front-right-01.png"
+                            alt="Ares Residence Iași - casă modernă cu arhitectură contemporană"
                             fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            quality={68}
                             className="object-cover"
                         />
                     </motion.div>
@@ -106,9 +120,11 @@ export default function AboutUsClient() {
                         transition={{ duration: 0.8, ease: 'easeInOut' }}
                     >
                         <Image
-                            src="/images/black-house2-bg.jpg"
-                            alt="Contemporary villa"
+                            src="/images/ares-front-01.png"
+                            alt="Vilă contemporană Ares Residence în Iași"
                             fill
+                            sizes="(max-width: 1024px) 100vw, 65vw"
+                            quality={68}
                             className="object-cover"
                         />
                     </motion.div>
