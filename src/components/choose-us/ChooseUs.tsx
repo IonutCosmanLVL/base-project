@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 
 type Feature = {
     image: string;
+    imageAlt: string;
     title: string;
     description: string;
 };
@@ -13,27 +14,31 @@ type Feature = {
 const features: Feature[] = [
     {
         image: '/images/example-house2.png',
+        imageAlt: 'Ares Residence Iași - detaliu de design rezidențial modern',
         title: 'Viziune și Inovație',
         description:
-            'Abordăm fiecare proiect cu o perspectivă proaspătă, integrând cele mai noi tehnologii în designul rezidențial contemporan.',
+            'Abordăm fiecare proiect Ares Residence din Iași cu o perspectivă proaspătă, integrând tehnologii actuale în designul rezidențial contemporan.',
     },
     {
         image: '/images/bricks-quality-img2.png',
+        imageAlt: 'Materiale premium pentru construcția locuințelor Ares Residence',
         title: 'Calitate superioară',
         description:
             'Selecționăm riguros materialele și colaborăm doar cu experți pentru a garanta durabilitatea și rafinamentul locuinței tale.',
     },
     {
         image: '/images/experience-img2.png',
+        imageAlt: 'Proces transparent de construcție pentru viitorii proprietari',
         title: 'Integritate',
         description:
             'Transparența este fundația noastră. Construim relații bazate pe încredere și respect reciproc cu fiecare viitor locatar.',
     },
     {
         image: '/images/trust-img2.png',
+        imageAlt: 'Locuințe eficiente și funcționale dezvoltate în Iași',
         title: 'Eficiență',
         description:
-            'Optimizăm resursele și timpul de execuție pentru a livra proiecte sustenabile și funcționale fără compromisuri estetice.',
+            'Optimizăm resursele și timpul de execuție pentru a livra în Iași locuințe sustenabile și funcționale, fără compromisuri estetice.',
     },
 ];
 
@@ -66,11 +71,11 @@ export default function ChooseUs() {
     };
 
     return (
-        <section className="relative bg-dark-grey text-white">
+        <section className="relative bg-dark-grey text-white" aria-labelledby="choose-us-title">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_600px_at_20%_0%,rgba(255,255,255,0.06),transparent_60%),radial-gradient(900px_500px_at_80%_20%,rgba(255,140,0,0.06),transparent_60%)]" />
 
             <div className="relative px-6 xl:px-20">
-                <div className="max-w-[1440px] mx-auto py-[100px] lg:pt-[270px] lg:pb-[250px]">
+                <div className="max-w-[1440px] mx-auto py-[100px] lg:pt-[200px] lg:pb-[200px]">
                     <motion.div
                         ref={ref}
                         variants={headerVariants}
@@ -83,7 +88,7 @@ export default function ChooseUs() {
                                 Exclusivitate &amp; Excelență
                             </p>
 
-                            <h2 className="h2">
+                            <h2 id="choose-us-title" className="h2">
                                 <span className="text-white font-[300]">De ce să alegi</span>
                                 <br />
                                 <span className="italic text-gold">Ares Residence</span>
@@ -94,7 +99,7 @@ export default function ChooseUs() {
                             <div className="flex gap-6 lg:gap-8 items-start">
                                 <div className="hidden lg:block w-px h-[78px] bg-white/10 mt-2" />
                                 <p className="p-lead text-white max-w-[520px]">
-                                    Angajamentul nostru față de excelență se reflectă în fiecare detaliu al procesului de construcție.
+                                    Angajamentul nostru față de excelență se reflectă în fiecare detaliu al procesului de construcție, de la conceptul arhitectural până la locuința finală.
                                 </p>
                             </div>
                         </div>
@@ -110,7 +115,7 @@ export default function ChooseUs() {
                                     initial="hidden"
                                     animate={inView ? 'visible' : 'hidden'}
                                     className="
-                                        group relative overflow-hidden
+                                        animated-card-border group relative overflow-hidden
                                         bg-white/5 border border-white/10
                                         min-h-[420px] lg:min-h-[460px]
                                     "
@@ -118,10 +123,10 @@ export default function ChooseUs() {
                                     <div className="absolute inset-0">
                                         <Image
                                             src={feature.image}
-                                            alt={feature.title}
+                                            alt={feature.imageAlt}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                            priority={index < 2}
+                                            quality={68}
                                             className="
                                                 object-cover opacity-35
                                                 grayscale-0 lg:grayscale
@@ -150,7 +155,7 @@ export default function ChooseUs() {
                                             {feature.title}
                                         </h3>
 
-                                        <p className="mt-4 p-lead leading-[28px] text-white/60">
+                                        <p className="mt-4 p-lead text-white/60">
                                             {feature.description}
                                         </p>
                                     </div>

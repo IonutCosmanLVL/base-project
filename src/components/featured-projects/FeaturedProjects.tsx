@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useId } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -11,24 +12,34 @@ type StatItem = {
 
 type Props = {
     imagePosition?: 'left' | 'right';
+    liftImage?: boolean;
     title: string;
     description: string;
     imageSrc: string;
+    imageAlt?: string;
     stats?: StatItem[];
 };
 
 export default function FeaturedProjects({
     imagePosition = 'left',
+    liftImage = false,
     title,
     description,
     imageSrc,
+    imageAlt,
     stats = [],
 }: Props) {
     const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
     const isImageLeft = imagePosition === 'left';
+    const titleId = useId();
+    const resolvedImageAlt = imageAlt ?? `${title} - Ares Residence Iași`;
 
     return (
-        <section ref={ref} className={`relative w-full overflow-hidden lg:h-[900px] bg-transparent z-[2] ${isImageLeft ? 'lg:mt-[-80px]' : ''}`}>
+        <section
+            ref={ref}
+            aria-labelledby={titleId}
+            className={`relative w-full overflow-hidden lg:h-[900px] bg-transparent z-[2] ${liftImage ? 'lg:mt-[-80px]' : ''}`}
+        >
             {/* Desktop: Image */}
             <motion.div
                 className={`hidden lg:block absolute top-0 h-full w-1/2 ${
@@ -40,10 +51,11 @@ export default function FeaturedProjects({
             >
                 <Image
                     src={imageSrc}
-                    alt={title}
+                    alt={resolvedImageAlt}
                     fill
+                    sizes="50vw"
+                    quality={68}
                     className="object-cover"
-                    priority
                 />
             </motion.div>
 
@@ -59,7 +71,7 @@ export default function FeaturedProjects({
                     transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
                 >
                     <div className={`max-w-xl ${isImageLeft ? 'lg:mt-[40px]' : 'lg:mt-[-40px]'}`}>
-                        <h2 className="h2 text-dark-grey">
+                        <h2 id={titleId} className="h2 text-dark-grey">
                             {title}
                         </h2>
                         <div
@@ -68,15 +80,15 @@ export default function FeaturedProjects({
                             }`}
                         />
 
-                        <p className="text-grey p-lead leading-relaxed mb-8">
+                        <p className="text-grey p-lead mb-8">
                             {description}
                         </p>
                         {stats.length > 0 && (
-                            <div className="grid grid-cols-2 gap-x-10 gap-y-6">
+                            <dl className="grid grid-cols-2 gap-x-10 gap-y-6">
                                 {stats.map((stat, i) => (
                                     <Stat key={i} label={stat.label} value={stat.value} align={isImageLeft ? 'end' : 'start'} />
                                 ))}
-                            </div>
+                            </dl>
                         )}
                     </div>
                 </motion.div>
@@ -92,10 +104,11 @@ export default function FeaturedProjects({
             >
                 <Image
                     src={imageSrc}
-                    alt={title}
+                    alt={resolvedImageAlt}
                     fill
+                    sizes="100vw"
+                    quality={68}
                     className="object-cover"
-                    priority
                 />
             </motion.div>
         </section>
@@ -104,9 +117,9 @@ export default function FeaturedProjects({
 
 function Stat({ label, value, align }: { label: string; value: string; align: 'start' | 'end' }) {
     return (
-        <div className={`flex flex-col items-${align}`}>
-            <span className="font-inter text-[15px] text-grey mb-1">{label}</span>
-            <span className="font-poppins text-dark-grey text-[18px] font-[500] text-gold leading-none">{value}</span>
+        <div className={`flex flex-col ${align === 'end' ? 'items-end' : 'items-start'}`}>
+            <dt className="font-inter text-[15px] text-grey mb-1">{label}</dt>
+            <dd className="font-poppins text-dark-grey text-[18px] font-[500] text-gold leading-none">{value}</dd>
         </div>
     );
 }

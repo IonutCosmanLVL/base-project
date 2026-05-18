@@ -207,7 +207,7 @@ export default function GalleryPageClient() {
                         <h1 className="font-poppins text-5xl font-[700] leading-[1] tracking-[1px] text-white sm:text-6xl lg:text-[88px]">
                             Portofoliu <span className="text-gold">Ares</span>
                         </h1>
-                        <p className="mt-8 max-w-2xl font-inter text-lg leading-[1.85] text-white/70 md:text-xl">
+                        <p className="mt-8 max-w-2xl font-inter text-[18px] leading-[28px] text-white/70">
                             Descopera etapele de constructie, proiectele finalizate si selectia
                             extinsa de imagini care definesc universul Ares Residence.
                         </p>
@@ -221,7 +221,7 @@ export default function GalleryPageClient() {
                         <h2 className="font-poppins text-3xl font-[700] tracking-[-0.04em] text-dark-grey md:text-4xl">
                             Exploreaza galeria Ares Residence
                         </h2>
-                        <p className="mt-4 font-inter text-base leading-8 text-dark-grey/65 md:text-lg">
+                        <p className="mt-4 font-inter text-[18px] leading-[28px] text-dark-grey/65">
                             Alege perspectiva care te intereseaza si descopera imagini dedicate
                             fiecarei etape, de la constructie la proiecte finalizate si design interior.
                         </p>
@@ -266,7 +266,7 @@ export default function GalleryPageClient() {
                         </span>
                     </div>
 
-                    <p className="mb-14 max-w-3xl font-inter text-lg leading-8 text-dark-grey/65">
+                    <p className="mb-14 max-w-3xl font-inter text-[18px] leading-[28px] text-dark-grey/65">
                         {activeConstructionCollection.description}
                     </p>
 
@@ -412,7 +412,7 @@ export default function GalleryPageClient() {
                                 <p className="mt-3 font-inter text-xs uppercase tracking-[0.3em] text-gold">
                                     {activeProject.location}
                                 </p>
-                                <p className="mt-8 max-w-[24ch] font-inter text-lg leading-relaxed text-white/65">
+                                <p className="mt-8 max-w-[24ch] font-inter text-[18px] leading-[28px] text-white/65">
                                     {activeProject.description}
                                 </p>
 
@@ -497,7 +497,7 @@ export default function GalleryPageClient() {
                     <h2 className="font-poppins text-5xl font-[700] tracking-[-0.04em]">
                         Pregatit pentru viitoarea ta resedinta?
                     </h2>
-                    <p className="mt-8 font-inter text-lg leading-relaxed text-white/65">
+                    <p className="mt-8 font-inter text-[18px] leading-[28px] text-white/65">
                         Fiecare proiect incepe cu o viziune. Suntem aici pentru a o aduce
                         la viata cu precizie si excelenta arhitecturala.
                     </p>
@@ -524,7 +524,7 @@ export default function GalleryPageClient() {
                     <button
                         type="button"
                         onClick={() => setSelectedImageIndex(null)}
-                        className="absolute right-4 top-4 inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors duration-300 hover:border-gold hover:text-gold"
+                        className="absolute right-4 top-4 inline-flex h-12 w-12 items-center justify-center border border-white/10 bg-white/5 text-white transition-colors duration-300 hover:border-gold hover:text-gold"
                         aria-label="Inchide imaginea"
                     >
                         <X className="h-5 w-5" />
